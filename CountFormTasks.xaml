@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>552,1511</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>789,1511</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CountFormTasks_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -67,9 +67,9 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="CountFormTasks" sap:VirtualizedContainerService.HintSize="562,1446" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -83,7 +83,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <upaf:GetFormTasks Expand="{x:Null}" Filter="{x:Null}" OrderBy="{x:Null}" Reference="{x:Null}" Select="{x:Null}" Skip="{x:Null}" TimeoutMs="{x:Null}" Top="{x:Null}" DisplayName="Get Form Tasks" sap:VirtualizedContainerService.HintSize="520,342" sap2010:WorkflowViewState.IdRef="GetFormTasks_1" TaskCatalogName="acceptanceCatalog" TaskObjects="[taskObjects]" />
+    <upaf:GetFormTasks Expand="{x:Null}" OrderBy="{x:Null}" Reference="{x:Null}" Select="{x:Null}" Skip="{x:Null}" TimeoutMs="{x:Null}" Top="{x:Null}" DisplayName="Get Form Tasks" Filter="Status eq 'Unassigned'" sap:VirtualizedContainerService.HintSize="520,342" sap2010:WorkflowViewState.IdRef="GetFormTasks_1" TaskCatalogName="acceptanceCatalog" TaskObjects="[taskObjects]" />
     <Assign sap:VirtualizedContainerService.HintSize="520,60" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
@@ -98,7 +98,7 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="upamt:TaskData" Name="item" />
           </ActivityAction.Argument>
-          <If Condition="[item.IsDeleted.Equals(&quot;False&quot;)]" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[item.IsDeleted.ToString.Equals(&quot;False&quot;)]" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_1">
             <If.Then>
               <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
                 <Assign.To>
